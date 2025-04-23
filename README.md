@@ -1,4 +1,4 @@
- t# carla_scripts_project
+# carla_scripts_project
 Εxamples
 
 # CARLA Scripts Collection 🚗
