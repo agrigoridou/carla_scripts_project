@@ -20,7 +20,9 @@
 - CARLA Simulator (v0.10.0 για UE5)
 - Πρέπει να τρέχει ο CARLA server:  
   ```bash
-  ./CarlaUE5.sh
+  cd CarlaUE5/Build/Package/Carla-0.10.0-Linux-Shipping/Li
+nux
+  ./CarlaUnreal.sh
 
 ## 🛠️ Εγκατάσταση
 
