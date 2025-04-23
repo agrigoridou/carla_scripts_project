@@ -22,7 +22,3 @@
   ```bash
   cd CarlaUE5/Build/Package/Carla-0.10.0-Linux-Shipping/Linux
   ./CarlaUnreal.sh
-
-
-
-
