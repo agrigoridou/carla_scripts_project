@@ -7,6 +7,7 @@
 
 ## Περιεχόμενα
 
+- `test_connection.py`: Έλεγχος σύνδεσης με τον CARLA server.
 - `list_vehicle_blueprints.py`: Λίστα διαθέσιμων blueprint οχημάτων.
 - `spawn_and_drive_vehicle.py`: Spawn και οδήγηση ενός οχήματος.
 - `camera_sensor_save_images.py`: Προσθήκη κάμερας σε όχημα και αποθήκευση εικόνων.
