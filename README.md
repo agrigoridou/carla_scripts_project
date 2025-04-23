@@ -15,14 +15,14 @@
 
 ## Προαπαιτούμενα
 
-- Ubuntu 22.04
-- Python 3.10.12
-- CARLA Simulator (v0.10.0 για UE5)
+- Ubuntu 22.04  
+- Python 3.10.12  
+- CARLA Simulator (v0.10.0 για UE5)  
 - Πρέπει να τρέχει ο CARLA server:  
   ```bash
-  cd CarlaUE5/Build/Package/Carla-0.10.0-Linux-Shipping/Li
-nux
+  cd CarlaUE5/Build/Package/Carla-0.10.0-Linux-Shipping/Linux
   ./CarlaUnreal.sh
+
 
 ## 🛠️ Εγκατάσταση
 
