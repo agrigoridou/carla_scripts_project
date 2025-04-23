@@ -24,8 +24,5 @@
   ./CarlaUnreal.sh
 
 
-## 🛠️ Εγκατάσταση
 
-```bash
-pip install -r requirements.txt
 
