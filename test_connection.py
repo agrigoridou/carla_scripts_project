@@ -8,11 +8,8 @@ def test_connection():
         client = carla.Client("localhost", 2000)
         client.set_timeout(10.0)
         
-        # Λήψη του κόσμου
-        world = client.get_world()
-        
         # Εκτύπωση επιτυχούς σύνδεσης
-        print("Connected to CARLA world.")
+        print("Connected to CARLA server.")
         print("\nConnection successful.")
     except Exception as e:
         print(f"Error while connecting to CARLA: {e}")
