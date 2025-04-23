@@ -3,18 +3,24 @@
 
 # CARLA Scripts Collection 🚗
 
-Αυτό το project περιλαμβάνει βασικά scripts για τον προσομοιωτή [CARLA](https://carla.org), τα οποία καλύπτουν:
+Αυτός ο φάκελος περιέχει βασικά παραδείγματα Python για την προσομοίωση στον CARLA Simulator v0.10.0 (UE5).
 
-1. **Εμφάνιση διαθέσιμων οχημάτων**
-2. **Spawn και βασική οδήγηση οχήματος**
-3. **Προσθήκη κάμερας RGB και αποθήκευση εικόνων**
-4. **Αλλαγή καιρού στον προσομοιωτή**
-5. **Αυτόνομη οδήγηση μέσω waypoints**
+## Περιεχόμενα
 
-## 📦 Απαιτήσεις
+- `list_vehicle_blueprints.py`: Λίστα διαθέσιμων blueprint οχημάτων.
+- `spawn_and_drive_vehicle.py`: Spawn και οδήγηση ενός οχήματος.
+- `camera_sensor_save_images.py`: Προσθήκη κάμερας σε όχημα και αποθήκευση εικόνων.
+- `change_weather.py`: Αλλαγή καιρικών συνθηκών στον κόσμο.
+- `waypoint_autonomous_drive.py`: Αυτόνομη οδήγηση σε σειρά waypoints.
 
-- Python 3.10
-- CARLA simulator (συνδεδεμένο στη θύρα `localhost:2000`)
+## Προαπαιτούμενα
+
+- Ubuntu 22.04
+- Python 3.10.12
+- CARLA Simulator (v0.10.0 για UE5)
+- Πρέπει να τρέχει ο CARLA server:  
+  ```bash
+  ./CarlaUE5.sh
 
 ## 🛠️ Εγκατάσταση
 
