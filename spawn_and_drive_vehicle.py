@@ -10,8 +10,8 @@ client.set_timeout(10.0)
 world = client.get_world()
 blueprint_library = world.get_blueprint_library()
 
-# Επιλογή τυχαίου οχήματος Tesla Model 3
-vehicle_bp = random.choice(blueprint_library.filter('vehicle.tesla.model3'))
+# Επιλογή οχήματος 
+vehicle_bp = random.choice(blueprint_library.filter('vehicle.taxi.ford'))
 
 # Επιλογή τυχαίου σημείου για spawn
 spawn_point = random.choice(world.get_map().get_spawn_points())
