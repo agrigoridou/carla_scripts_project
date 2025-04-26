@@ -31,4 +31,23 @@ def main():
                     print(f'Επιτυχής δημιουργία οχήματος στην προσπάθεια {attempt+1}!')
                     break
                 else:
-                    print(f'Απέ
+                    print(f'Απέτυχε το spawn στην προσπάθεια {attempt+1}. Δοκιμάζω ξανά...')
+            except RuntimeError as e:
+                print(f'Σφάλμα στην προσπάθεια {attempt+1}: {e}')
+
+        if vehicle is None:
+            print('Απέτυχε η δημιουργία οχήματος μετά από 10 προσπάθειες.')
+            return
+
+        # Οδήγησε το όχημα για λίγο (προαιρετικό)
+        vehicle.set_autopilot(True)
+        time.sleep(10)
+
+    finally:
+        print('Καθαρίζω ηθοποιούς...')
+        for actor in actor_list:
+            actor.destroy()
+        print('Τέλος!')
+
+if __name__ == '__main__':
+    main()
