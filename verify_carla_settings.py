@@ -25,19 +25,29 @@ walker_blueprints = blueprint_library.filter('walker.pedestrian.*')
 # Παίρνουμε τα spawn points
 spawn_points = world.get_map().get_spawn_points()
 
+if not spawn_points:
+    print("Δεν υπάρχουν διαθέσιμα spawn points!")
+    exit(1)
+
 # Δημιουργούμε 5 οχήματα
 print("Δημιουργία οχημάτων...")
 for _ in range(5):
     vehicle_bp = random.choice(vehicle_blueprints)
     spawn_point = random.choice(spawn_points)
-    vehicle = world.spawn_actor(vehicle_bp, spawn_point)
+    try:
+        vehicle = world.spawn_actor(vehicle_bp, spawn_point)
+    except RuntimeError as e:
+        print(f"Αποτυχία δημιουργίας οχήματος: {e}")
 
 # Δημιουργούμε 5 πεζούς
 print("Δημιουργία πεζών...")
 for _ in range(5):
     walker_bp = random.choice(walker_blueprints)
     spawn_point = random.choice(spawn_points)
-    walker = world.spawn_actor(walker_bp, spawn_point)
+    try:
+        walker = world.spawn_actor(walker_bp, spawn_point)
+    except RuntimeError as e:
+        print(f"Αποτυχία δημιουργίας πεζού: {e}")
 
 # Περιμένουμε λίγο για να διασφαλίσουμε ότι οι ηθοποιοί είναι στο σύστημα
 time.sleep(2)
@@ -59,17 +69,3 @@ if len(active_walkers) == 0:
     print("Δεν υπάρχουν ενεργοί πεζοί στον κόσμο.")
 else:
     print("Υπάρχουν ενεργοί πεζοί στον κόσμο.")
-
-
-
-//////////////////////////////////////////////////////////////////////////
-
-sysadm@icsd20048vm:~/Desktop/carla_scripts_project-main$ python3 verify_carla_settings.py
-CARLA είναι σε asynchronous mode.
-Δημιουργία οχημάτων...
-Traceback (most recent call last):
-  File "/home/sysadm/Desktop/carla_scripts_project-main/verify_carla_settings.py", line 33, in <module>
-    vehicle = world.spawn_actor(vehicle_bp, spawn_point)
-RuntimeError: std::exception
-sysadm@icsd20048vm:~/Desktop/carla_scripts_project-main$ 
-
