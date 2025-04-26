@@ -59,3 +59,17 @@ if len(active_walkers) == 0:
     print("Δεν υπάρχουν ενεργοί πεζοί στον κόσμο.")
 else:
     print("Υπάρχουν ενεργοί πεζοί στον κόσμο.")
+
+
+
+//////////////////////////////////////////////////////////////////////////
+
+sysadm@icsd20048vm:~/Desktop/carla_scripts_project-main$ python3 verify_carla_settings.py
+CARLA είναι σε asynchronous mode.
+Δημιουργία οχημάτων...
+Traceback (most recent call last):
+  File "/home/sysadm/Desktop/carla_scripts_project-main/verify_carla_settings.py", line 33, in <module>
+    vehicle = world.spawn_actor(vehicle_bp, spawn_point)
+RuntimeError: std::exception
+sysadm@icsd20048vm:~/Desktop/carla_scripts_project-main$ 
+
