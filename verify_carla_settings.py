@@ -34,3 +34,19 @@ if len(pedestrians) > 0:
     print("Υπάρχουν ενεργοί πεζοί στον κόσμο.")
 else:
     print("Δεν υπάρχουν ενεργοί πεζοί στον κόσμο.")
+
+
+
+
+
+///////////////////////////////////////////////
+
+sysadm:~/Desktop/carla_scripts_project-main$ python3 verify_carla_settings.py
+CARLA είναι σε asynchronous mode.
+Αριθμός ενεργών οχημάτων: 0
+Αριθμός ενεργών πεζών: 0
+Δεν υπάρχουν ενεργά οχήματα στον κόσμο.
+Δεν υπάρχουν ενεργοί πεζοί στον κόσμο.
+sysadm:~/Desktop/carla_scripts_project-main$ 
+
+
