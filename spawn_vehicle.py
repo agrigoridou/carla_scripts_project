@@ -2,92 +2,49 @@ import carla
 import random
 import time
 
+def spawn_vehicle():
+    client = carla.Client('localhost', 2000)
+    client.set_timeout(10.0)
+    world = client.get_world()
+    blueprint_library = world.get_blueprint_library()
+
+    # Επιλέγουμε το όχημα από τη λίστα που έχουμε
+    vehicle_bp = blueprint_library.find('vehicle.dodge.charger')
+    if not vehicle_bp:
+        print("Το μπλεπρίντ για το όχημα δεν βρέθηκε!")
+        return False
+
+    # Επιλέγουμε τυχαία σημείο για το spawn
+    spawn_point = random.choice(world.get_map().get_spawn_points())
+
+    # Προσπαθούμε να δημιουργήσουμε το όχημα
+    vehicle = None
+    for attempt in range(10):  # Δοκιμάζουμε μέχρι 10 φορές
+        try:
+            vehicle = world.spawn_actor(vehicle_bp, spawn_point)
+            print(f"Το όχημα δημιουργήθηκε επιτυχώς στην προσπάθεια {attempt + 1}.")
+            return vehicle
+        except RuntimeError:
+            print(f"Απέτυχε το spawn στην προσπάθεια {attempt + 1}. Δοκιμάζω ξανά...")
+            time.sleep(1)  # Παύση 1 δευτερολέπτου πριν την επόμενη προσπάθεια
+
+    print("Απέτυχε η δημιουργία οχήματος μετά από 10 προσπάθειες.")
+    return False
+
 def main():
-    actor_list = []
-    try:
-        client = carla.Client('localhost', 2000)
-        client.set_timeout(5.0)
+    print("Προσπαθώ να δημιουργήσω το όχημα Dodge Charger...")
+    vehicle = spawn_vehicle()
 
-        world = client.get_world()
+    if vehicle:
+        print(f"Το όχημα {vehicle.type_id} δημιουργήθηκε επιτυχώς.")
+    else:
+        print("Η δημιουργία του οχήματος απέτυχε.")
 
-        blueprint_library = world.get_blueprint_library()
-
-        # Φιλτράρουμε ΜΟΝΟ σωστά driveable οχήματα
-        vehicles = blueprint_library.filter('vehicle.*')
-        vehicles = [
-            v for v in vehicles
-            if 'actor' not in v.id and 'ue4' not in v.id and not v.id.endswith('destroyed')
-        ]
-
-        spawn_points = world.get_map().get_spawn_points()
-
-        if not spawn_points:
-            print('Δεν υπάρχουν spawn points διαθέσιμα!')
-            return
-
-        max_attempts = 10
-        vehicle = None
-
-        for attempt in range(max_attempts):
-            vehicle_bp = random.choice(vehicles)
-            spawn_point = random.choice(spawn_points)
-            print(f'Προσπάθεια {attempt+1}: Δοκιμάζω να δημιουργήσω {vehicle_bp.id}...')
-
-            try:
-                vehicle = world.try_spawn_actor(vehicle_bp, spawn_point)
-                if vehicle is not None:
-                    actor_list.append(vehicle)
-                    print(f'Επιτυχία στην προσπάθεια {attempt+1} με όχημα {vehicle_bp.id}!')
-                    break
-                else:
-                    print(f'Απέτυχε το spawn στην προσπάθεια {attempt+1}. Δοκιμάζω ξανά...')
-            except RuntimeError as e:
-                print(f'Σφάλμα στην προσπάθεια {attempt+1}: {e}')
-
-        if vehicle is None:
-            print('Απέτυχε η δημιουργία οχήματος μετά από 10 προσπάθειες.')
-            return
-
-        vehicle.set_autopilot(True)
-        time.sleep(10)
-
-    finally:
-        print('Καθαρίζω ηθοποιούς...')
-        for actor in actor_list:
-            actor.destroy()
-        print('Τέλος!')
+    # Καθαρισμός ηθοποιών
+    print("Καθαρίζω ηθοποιούς...")
+    if vehicle:
+        vehicle.destroy()
+    print("Τέλος!")
 
 if __name__ == '__main__':
     main()
-
-
-
-//////////////////////////////////////////////////////////////////////////
-
-
-
-sysadm:~/Desktop/carla_scripts_project-main$ python3 spawn_vehicle.py
-Προσπάθεια 1: Δοκιμάζω να δημιουργήσω vehicle.ambulance.ford...
-Απέτυχε το spawn στην προσπάθεια 1. Δοκιμάζω ξανά...
-Προσπάθεια 2: Δοκιμάζω να δημιουργήσω vehicle.mini.cooper...
-Απέτυχε το spawn στην προσπάθεια 2. Δοκιμάζω ξανά...
-Προσπάθεια 3: Δοκιμάζω να δημιουργήσω vehicle.mini.cooper...
-Απέτυχε το spawn στην προσπάθεια 3. Δοκιμάζω ξανά...
-Προσπάθεια 4: Δοκιμάζω να δημιουργήσω vehicle.fuso.mitsubishi...
-Απέτυχε το spawn στην προσπάθεια 4. Δοκιμάζω ξανά...
-Προσπάθεια 5: Δοκιμάζω να δημιουργήσω vehicle.lincoln.mkz...
-Απέτυχε το spawn στην προσπάθεια 5. Δοκιμάζω ξανά...
-Προσπάθεια 6: Δοκιμάζω να δημιουργήσω vehicle.dodgecop.charger...
-Απέτυχε το spawn στην προσπάθεια 6. Δοκιμάζω ξανά...
-Προσπάθεια 7: Δοκιμάζω να δημιουργήσω vehicle.dodge.charger...
-Απέτυχε το spawn στην προσπάθεια 7. Δοκιμάζω ξανά...
-Προσπάθεια 8: Δοκιμάζω να δημιουργήσω vehicle.fuso.mitsubishi...
-Απέτυχε το spawn στην προσπάθεια 8. Δοκιμάζω ξανά...
-Προσπάθεια 9: Δοκιμάζω να δημιουργήσω vehicle.dodge.charger...
-Απέτυχε το spawn στην προσπάθεια 9. Δοκιμάζω ξανά...
-Προσπάθεια 10: Δοκιμάζω να δημιουργήσω vehicle.taxi.ford...
-Απέτυχε το spawn στην προσπάθεια 10. Δοκιμάζω ξανά...
-Απέτυχε η δημιουργία οχήματος μετά από 10 προσπάθειες.
-Καθαρίζω ηθοποιούς...
-Τέλος!
-sysadm:~/Desktop/carla_scripts_project-main$ 
