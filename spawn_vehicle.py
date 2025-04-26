@@ -11,7 +11,7 @@ def main():
         world = client.get_world()
 
         blueprint_library = world.get_blueprint_library()
-        vehicle_bp = blueprint_library.find('vehicle.dodge.charger_2020')
+        vehicle_bp = random.choice(blueprint_library.filter('vehicle.*'))
 
         spawn_points = world.get_map().get_spawn_points()
 
@@ -39,7 +39,6 @@ def main():
             print('Απέτυχε η δημιουργία οχήματος μετά από 10 προσπάθειες.')
             return
 
-        # Οδήγησε το όχημα για λίγο (προαιρετικό)
         vehicle.set_autopilot(True)
         time.sleep(10)
 
@@ -51,19 +50,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-/////////////////////////////////////////////
-
-
-
-sysadm:~/Desktop/carla_scripts_project-main$ python3 spawn_vehicle.py
-Καθαρίζω ηθοποιούς...
-Τέλος!
-Traceback (most recent call last):
-  File "/home/sysadm/Desktop/carla_scripts_project-main/spawn_vehicle.py", line 53, in <module>
-    main()
-  File "/home/sysadm/Desktop/carla_scripts_project-main/spawn_vehicle.py", line 14, in main
-    vehicle_bp = blueprint_library.find('vehicle.dodge.charger_2020')
-RuntimeError: std::exception
-sysadm:~/Desktop/carla_scripts_project-main$ 
