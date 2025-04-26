@@ -11,7 +11,10 @@ def main():
         world = client.get_world()
 
         blueprint_library = world.get_blueprint_library()
-        vehicle_bp = random.choice(blueprint_library.filter('vehicle.*'))
+
+        # Πάρε μόνο τα κανονικά οχήματα, όχι props
+        vehicles = blueprint_library.filter('vehicle.*')
+        vehicles = [v for v in vehicles if not v.id.endswith('destroyed')]
 
         spawn_points = world.get_map().get_spawn_points()
 
@@ -23,12 +26,15 @@ def main():
         vehicle = None
 
         for attempt in range(max_attempts):
+            vehicle_bp = random.choice(vehicles)  # Επιλογή νέου οχήματος κάθε φορά
             spawn_point = random.choice(spawn_points)
+            print(f'Προσπάθεια {attempt+1}: Δοκιμάζω να δημιουργήσω {vehicle_bp.id}...')
+
             try:
                 vehicle = world.try_spawn_actor(vehicle_bp, spawn_point)
                 if vehicle is not None:
                     actor_list.append(vehicle)
-                    print(f'Επιτυχής δημιουργία οχήματος στην προσπάθεια {attempt+1}!')
+                    print(f'Επιτυχία στην προσπάθεια {attempt+1} με όχημα {vehicle_bp.id}!')
                     break
                 else:
                     print(f'Απέτυχε το spawn στην προσπάθεια {attempt+1}. Δοκιμάζω ξανά...')
@@ -50,25 +56,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-//////////////////////////////////////////////////////////////////
-
-
-sysadm:~/Desktop/carla_scripts_project-main$ python3 spawn_vehicle.py
-Απέτυχε το spawn στην προσπάθεια 1. Δοκιμάζω ξανά...
-Απέτυχε το spawn στην προσπάθεια 2. Δοκιμάζω ξανά...
-Απέτυχε το spawn στην προσπάθεια 3. Δοκιμάζω ξανά...
-Απέτυχε το spawn στην προσπάθεια 4. Δοκιμάζω ξανά...
-Απέτυχε το spawn στην προσπάθεια 5. Δοκιμάζω ξανά...
-Απέτυχε το spawn στην προσπάθεια 6. Δοκιμάζω ξανά...
-Απέτυχε το spawn στην προσπάθεια 7. Δοκιμάζω ξανά...
-Απέτυχε το spawn στην προσπάθεια 8. Δοκιμάζω ξανά...
-Απέτυχε το spawn στην προσπάθεια 9. Δοκιμάζω ξανά...
-Απέτυχε το spawn στην προσπάθεια 10. Δοκιμάζω ξανά...
-Απέτυχε η δημιουργία οχήματος μετά από 10 προσπάθειες.
-Καθαρίζω ηθοποιούς...
-Τέλος!
-sysadm:~/Desktop/carla_scripts_project-main$ 
