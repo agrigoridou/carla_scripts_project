@@ -1,19 +1,20 @@
-# Εμφανίζει όλα τα διαθέσιμα blueprints οχημάτων στο CARLA
-
-import carla
-
-def list_available_vehicles():
-    client = carla.Client('localhost', 2000)
-    client.set_timeout(5.0)
-    world = client.get_world()
+def print_available_vehicles(world):
     blueprint_library = world.get_blueprint_library()
+    vehicles = [bp.id for bp in blueprint_library.filter('vehicle')]
+    print("Διαθέσιμα οχήματα:", vehicles)
 
-    # Φιλτράρουμε ΜΟΝΟ τα οχήματα
-    vehicles = blueprint_library.filter('vehicle.*')
+def main():
+    client = carla.Client('localhost', 2000)
+    client.set_timeout(10.0)
+    world = client.get_world()
 
-    print(f"Σύνολο διαθέσιμων οχημάτων: {len(vehicles)}")
-    for vehicle in vehicles:
-        print(vehicle.id)
+    # Εκτυπώνουμε τα διαθέσιμα οχήματα για να δούμε αν υπάρχει το Dodge Charger
+    print_available_vehicles(world)
+    
+    print("Προσπαθώ να δημιουργήσω το όχημα Dodge Charger...")
+    vehicle = spawn_vehicle()
 
-if __name__ == '__main__':
-    list_available_vehicles()
+    if vehicle:
+        print(f"Το όχημα {vehicle.type_id} δημιουργήθηκε επιτυχώς.")
+    else:
+        print("Η δημιουργία του οχήματος απέτυχε.")
