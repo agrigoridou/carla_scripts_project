@@ -1,4 +1,4 @@
-sysadm@icsd20048vm:~/Desktop/carla_scripts_project-main$ python3 list_available_vehicles.py
+sysadm:~/Desktop/carla_scripts_project-main$ python3 list_available_vehicles.py
 vehicle.taxi.ford
 vehicle.dodgecop.charger
 vehicle.ue4.chevrolet.impala
@@ -20,7 +20,7 @@ vehicle.lincoln.mkz
 
 //////////////////////////////////////////////////////////////////////////
 
-sysadm@icsd20048vm:~/Desktop/carla_scripts_project-main$ python3 list_spawn_points.py
+sysadm:~/Desktop/carla_scripts_project-main$ python3 list_spawn_points.py
 Found 155 spawn points:
 
 [0] Location(x=-64.64, y=24.47, z=0.60) | Rotation(pitch=0.00, yaw=0.16, roll=-0.00)
@@ -178,4 +178,4 @@ Found 155 spawn points:
 [152] Location(x=57.57, y=-67.85, z=0.60) | Rotation(pitch=0.00, yaw=179.98, roll=-0.00)
 [153] Location(x=-2.65, y=-68.05, z=0.60) | Rotation(pitch=0.00, yaw=-179.40, roll=0.00)
 [154] Location(x=106.42, y=-12.71, z=0.60) | Rotation(pitch=0.00, yaw=-89.61, roll=0.00)
-sysadm@icsd20048vm:~/Desktop/carla_scripts_project-main$ 
+sysadm:~/Desktop/carla_scripts_project-main$ 
