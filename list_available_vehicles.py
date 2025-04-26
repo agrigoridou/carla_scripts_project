@@ -1,3 +1,5 @@
+import carla
+
 def print_available_vehicles(world):
     blueprint_library = world.get_blueprint_library()
     vehicles = [bp.id for bp in blueprint_library.filter('vehicle')]
