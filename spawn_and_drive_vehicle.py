@@ -20,27 +20,39 @@ if not spawn_points:
     print("Error: No spawn points available.")
     exit(1)
 
-spawn_point = random.choice(spawn_points)
+vehicle = None
 
-# Επιλέγουμε blueprint και προσπαθούμε να κάνουμε spawn
-for attempt in range(10):
+# Προσπάθεια να κάνουμε spawn (μέχρι 20 φορές)
+for attempt in range(20):
+    spawn_point = random.choice(spawn_points)
     vehicle_bp = random.choice(vehicle_blueprints)
     try:
         vehicle = world.spawn_actor(vehicle_bp, spawn_point)
-        print(f"Vehicle spawned: {vehicle.type_id}")
+        print(f"[SUCCESS] Vehicle spawned: {vehicle.type_id}")
         break
     except RuntimeError as e:
-        print(f"Spawn failed with blueprint {vehicle_bp.id}, trying another one...")
-else:
-    print("Failed to spawn vehicle after 10 attempts.")
+        print(f"[Attempt {attempt+1}] Failed to spawn {vehicle_bp.id} at spawn point {spawn_point.location}, trying again...")
+
+if vehicle is None:
+    print("[ERROR] Failed to spawn a vehicle after multiple attempts.")
     exit(1)
 
-# Εφαρμογή κίνησης προς τα εμπρός
-vehicle.apply_control(carla.VehicleControl(throttle=0.5))
+# Κίνηση προς τα εμπρός με σταδιακή επιτάχυνση
+print("Starting vehicle movement...")
 
-# Αναμονή 5 δευτερολέπτων
-time.sleep(5)
+vehicle.apply_control(carla.VehicleControl(throttle=0.3))
+time.sleep(2)
+
+vehicle.apply_control(carla.VehicleControl(throttle=0.6))
+time.sleep(2)
+
+vehicle.apply_control(carla.VehicleControl(throttle=0.8))
+time.sleep(2)
+
+# Φρενάρισμα
+vehicle.apply_control(carla.VehicleControl(throttle=0.0, brake=1.0))
+time.sleep(2)
 
 # Καταστροφή του οχήματος
 vehicle.destroy()
-print("Vehicle destroyed.")
+print("Vehicle destroyed successfully.")
