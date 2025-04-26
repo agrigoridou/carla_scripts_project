@@ -52,3 +52,18 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+
+///////////////////////////////////////
+
+sysadm:~/Desktop/carla_scripts_project-main$ python3 spawn_vehicle.py
+Καθαρίζω ηθοποιούς...
+Τέλος!
+Traceback (most recent call last):
+  File "/home/sysadm/Desktop/carla_scripts_project-main/spawn_vehicle.py", line 54, in <module>
+    main()
+  File "/home/sysadm/Desktop/carla_scripts_project-main/spawn_vehicle.py", line 35, in main
+    vehicle = world.spawn_actor(vehicle_bp, spawn_point)
+RuntimeError: std::exception
+sysadm:~/Desktop/carla_scripts_project-main$ 
