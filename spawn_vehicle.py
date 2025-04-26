@@ -55,3 +55,17 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+
+
+
+/////////////////////////////////
+
+
+sysadm:~/Desktop/carla_scripts_project-main$ python3 spawn_vehicle.py
+Απέτυχε το spawn του οχήματος. Δοκίμασε ξανά!
+Καθαρίζω ηθοποιούς...
+Τέλος!
+sysadm:~/Desktop/carla_scripts_project-main$ 
+
