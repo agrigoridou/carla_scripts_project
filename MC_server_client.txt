@@ -1,0 +1,15 @@
+sysadm@icsd20048vm:~/CarlaUE5/Build/Package/Carla-0.10.0-Linux-Shipping/Linux$ ./CarlaUnreal.sh -quality-level=Low
+Shutdown handler: initialize.
+5.5.0-0+UE5 1013 0
+Disabling core dumps.
+
+
+
+///////////////////////////////////////
+
+ysadm@icsd20048vm:~/CarlaUE5/Build/Package/Carla-0.10.0-Linux-Shipping/PythonAPI/examples$ python3 manual_control.py --sync
+pygame 2.6.1 (SDL 2.28.4, Python 3.10.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+INFO: listening to server 127.0.0.1:2000
+Allows controlling a vehicle with a keyboard.
+
