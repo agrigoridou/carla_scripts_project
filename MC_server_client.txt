@@ -13,3 +13,13 @@ Hello from the pygame community. https://www.pygame.org/contribute.html
 INFO: listening to server 127.0.0.1:2000
 Allows controlling a vehicle with a keyboard.
 
+//////////////////////////////////////////////
+
+
+sysadm@icsd20048vm:~/CarlaUE5/Build/Package/Carla-0.10.0-Linux-Shipping/Linux/CarlaUnreal/Content/Carla/Maps$ dir
+Mine_01        OpenDrive		      TestMaps
+Mine_01.ubulk  OpenDriveMap_BuiltData.uasset  TM
+Mine_01.uexp   OpenDriveMap_BuiltData.uexp    Town10HD_Opt.uexp
+Mine_01.umap   OpenDriveMap.uexp	      Town10HD_Opt.umap
+Nav	       OpenDriveMap.umap
+sysadm@icsd20048vm:~/CarlaUE5/Build/Package/Carla-0.10.0-Linux-Shipping/Linux/CarlaUnreal/Content/Carla/Maps$ 
