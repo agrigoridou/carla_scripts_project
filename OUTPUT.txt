@@ -179,3 +179,51 @@ Found 155 spawn points:
 [153] Location(x=-2.65, y=-68.05, z=0.60) | Rotation(pitch=0.00, yaw=-179.40, roll=0.00)
 [154] Location(x=106.42, y=-12.71, z=0.60) | Rotation(pitch=0.00, yaw=-89.61, roll=0.00)
 sysadm:~/Desktop/carla_scripts_project-main$ 
+
+
+///////////////////////////////////////////
+
+
+sysadm:~/CarlaUE5/Build/Package/Carla-0.10.0-Linux-Shipping/PythonAPI/examples$ python3 generate_traffic.py
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+ERROR: Spawn failed because of invalid actor description
+spawned 0 vehicles and 0 walkers, press Ctrl+C to exit.
+
