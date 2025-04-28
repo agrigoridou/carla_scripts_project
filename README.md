@@ -23,3 +23,9 @@
   ```bash
   cd CarlaUE5/Build/Package/Carla-0.10.0-Linux-Shipping/Linux
   ./CarlaUnreal.sh
+  ```
+  or
+  ```bash
+  cd ~/CarlaUE5/Build/Package/Carla-0.10.0-Linux-Shipping/Linux
+  ./CarlaUnreal.sh -carla-world-port=2000 -quality-level=Low -carla-map=Town10HD_Opt -carla-synchronous-mode
+  ```
